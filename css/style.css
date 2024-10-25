@@ -1,179 +1,818 @@
+/*---------------------------------------/*
+ # SETTINGS
+/*---------------------------------------*/
+
 :root {
-  --orange: #ff9637;
-  --darkgreen: #005037;
-  --lilac: #5c4492;
-  --tomato: #de5c3b;
-  --blue: #006aaa;
-  --blue: #0071bb;
-
-  --neutral-100: #f7f7f7;
-  --neutral-200: #e9e9e9;
-  --neutral-300: #c4c4c4;
-  --neutral-400: #9b9b9b;
-  --neutral-500: #7a7a7a;
-  --neutral-600: #616161;
-  --neutral-700: #3d3d3d;
-  --neutral-800: #222222;
-  --neutral-900: #111111;
-
-  --page-text-color: var(--neutral-800);
-  --meta-text-color: var(--neutral-400);
-
-  --page-background-color: white;
-  --page-foreground-color: var(--neutral-200);
-
-  --border-color: var(--neutral-300);
-  --border-radius: 8px;
-  --border-radius-l: 16px;
-
-  --font-weight-normal: 300;
-  --font-weight-bold: 400;
-
-  --font-size-base: 1rem;
-  --font-size-l: 1.5rem;
-  --font-size-xl: 2.25rem;
-  --font-size-xxl: 3.375rem;
-
-  --space-xxs: .25rem;
-  --space-xs: .5rem;
-  --space-s: 1rem;
-  --space-m: 1.5rem;
-  --space-l: 2rem;
-  --space-xl: 3rem;
-  --space-xxl: 4.5rem;
+  /* CSS variables here */
 }
 
-/*
-  Global styles
-*/
+/*---------------------------------------/*
+ # GENERIC
+/*---------------------------------------*/
 
-/*
-  global reset
-  For every element:
-  remove all margin & padding
-  set the box-sizing to border-box
-*/
-
-* {
-  margin: 0;
-  padding: 0;
+*,
+*:before,
+*:after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*---------------------------------------/*
+ # ELEMENTS
+/*---------------------------------------*/
+
+/*
+    Elements: Page
+    ---
+    Default markup for page level elements
+*/
+
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #171b1c;
+  scroll-behavior: smooth;
+  /* anti aliasing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /*
-  global page styles
-  Set the html element to 18px (using relative units)
-  Set the font family to neue haas unica as told in the adobe fonts project
-  Set the global font-weight to 300
-  Set the global line-height to 1.5
-  Set the global text color and background color with the custom properties
+    Customize the background color and color to match your design.
 */
-
-html {}
 
 ::selection {
-  background-color: var(--lilac);
+  background: #00b2ff;
   color: white;
 }
 
-/* Responsive images */
-img,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Every ul without a class should look like an ul */
-
-ul:not([class]) {
-  list-style-type: disc;
-  list-style-position: inside;
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Headings */
+h3 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 
-/* set all headings to font-weight 300 */
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 
-h1,
-h2,
-h3,
-h4 {}
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin-bottom: 1.5rem;
+}
 
-/* set the h2 to a font-size xl and the correct line-height */
+ul,
+ol {
+  margin-left: 1.5rem;
+}
 
-h2 {}
+li ul,
+li ol {
+  margin-bottom: 0;
+}
 
-/* Links */
+blockquote {
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
 
-/* all links should have a color of --blue, provide a hover effect */
+figcaption {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-top: 0.5rem;
+  color: #73858c;
+}
 
-a {}
+hr {
+  border: 0;
+  height: 1px;
+  background: #e3e7e8;
+  margin-bottom: 1.5rem;
+}
 
-a:hover {}
+a {
+  color: #008fcc;
+  transition: all 0.1s ease-in-out;
+}
 
-/* Other elements */
+a:visited {
+  color: #008fcc;
+}
 
-hr {}
+a:hover {
+  color: #00b2ff;
+}
+
+a:active {
+  color: #006b99;
+}
+
+/*---------------------------------------/*
+ # OBJECTS
+/*---------------------------------------*/
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row with padding
+*/
+.o-row {
+  padding: 1.5rem 1.5rem 0;
+  display: flow-root;
+}
 
 /*
-  Reusable objects
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
 */
-
-/* Containers to add a max width and center content */
-
-.container {}
-
-/* Rows to add whitespace around child elements */
-
-.row {}
-
-.row--xl {}
-
-.row--xxl {}
-
-/* lists */
-
-.list-reset {}
-
-/* Everything inside content should have some space at the top when it's adjacent to another element */
-
-.content>*+* {}
-
-/* Images */
-
-.image-landscape {}
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 87.5rem;
+}
 
 /*
-  Component Specific styles
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  flex-basis: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+.o-layout--gutter {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.o-layout--gutter>.o-layout__item {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.o-layout--gutter-s {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.o-layout--gutter-s>.o-layout__item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.o-layout--gutter-l {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.o-layout--gutter-l>.o-layout__item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* reverse horizontal row modifier */
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+/*
+    Component: Component name
+    ---
+    Component description
 */
 
-/* Links */
+/*---------------------------------------/*
+ # UTILITIES
+/*---------------------------------------*/
+/*
+    Utilities: Max widths
+    ---
+    max-width utility classes
+*/
+.u-max-width-s {
+  max-width: 37.5rem;
+}
 
-/* Site header */
+.u-max-width-m {
+  max-width: 60rem;
+}
 
-/* Navigation */
-
-/* Categories */
-
-/* Products */
-
-/* Site footer */
-
-/* Contact */
-
-/* Product detail */
+.u-max-width-l {
+  max-width: 87.5rem;
+}
 
 /*
-  Reusable utitlity classes: classes that do one thing and one thing only.
+    Utilities: Widths
+    ---
+    Width utility classes
 */
+.u-flex-basis-auto {
+  flex-basis: auto;
+}
 
-/* Text */
+.u-1-of-2 {
+  flex-basis: 50% !important;
+}
 
-/* Whitespace */
+.u-2-of-2 {
+  flex-basis: 100% !important;
+}
 
-/* Font sizes */
+.u-1-of-3 {
+  flex-basis: 33.3333333333% !important;
+}
 
-/* Colors */
+.u-2-of-3 {
+  flex-basis: 66.6666666667% !important;
+}
 
-/* widths */
+.u-3-of-3 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-4 {
+  flex-basis: 25% !important;
+}
+
+.u-2-of-4 {
+  flex-basis: 50% !important;
+}
+
+.u-3-of-4 {
+  flex-basis: 75% !important;
+}
+
+.u-4-of-4 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-5 {
+  flex-basis: 20% !important;
+}
+
+.u-2-of-5 {
+  flex-basis: 40% !important;
+}
+
+.u-3-of-5 {
+  flex-basis: 60% !important;
+}
+
+.u-4-of-5 {
+  flex-basis: 80% !important;
+}
+
+.u-5-of-5 {
+  flex-basis: 100% !important;
+}
+
+.u-1-of-6 {
+  flex-basis: 16.6666666667% !important;
+}
+
+.u-2-of-6 {
+  flex-basis: 33.3333333333% !important;
+}
+
+.u-3-of-6 {
+  flex-basis: 50% !important;
+}
+
+.u-4-of-6 {
+  flex-basis: 66.6666666667% !important;
+}
+
+.u-5-of-6 {
+  flex-basis: 83.3333333333% !important;
+}
+
+.u-6-of-6 {
+  flex-basis: 100% !important;
+}
+
+@media (min-width: 36.0625em) {
+  .u-1-of-2-bp1 {
+    flex-basis: 50% !important;
+  }
+
+  .u-2-of-2-bp1 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-3-bp1 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-2-of-3-bp1 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-3-of-3-bp1 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-4-bp1 {
+    flex-basis: 25% !important;
+  }
+
+  .u-2-of-4-bp1 {
+    flex-basis: 50% !important;
+  }
+
+  .u-3-of-4-bp1 {
+    flex-basis: 75% !important;
+  }
+
+  .u-4-of-4-bp1 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-5-bp1 {
+    flex-basis: 20% !important;
+  }
+
+  .u-2-of-5-bp1 {
+    flex-basis: 40% !important;
+  }
+
+  .u-3-of-5-bp1 {
+    flex-basis: 60% !important;
+  }
+
+  .u-4-of-5-bp1 {
+    flex-basis: 80% !important;
+  }
+
+  .u-5-of-5-bp1 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-6-bp1 {
+    flex-basis: 16.6666666667% !important;
+  }
+
+  .u-2-of-6-bp1 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-3-of-6-bp1 {
+    flex-basis: 50% !important;
+  }
+
+  .u-4-of-6-bp1 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-5-of-6-bp1 {
+    flex-basis: 83.3333333333% !important;
+  }
+
+  .u-6-of-6-bp1 {
+    flex-basis: 100% !important;
+  }
+}
+
+@media (min-width: 48.0625em) {
+  .u-1-of-2-bp2 {
+    flex-basis: 50% !important;
+  }
+
+  .u-2-of-2-bp2 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-3-bp2 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-2-of-3-bp2 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-3-of-3-bp2 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-4-bp2 {
+    flex-basis: 25% !important;
+  }
+
+  .u-2-of-4-bp2 {
+    flex-basis: 50% !important;
+  }
+
+  .u-3-of-4-bp2 {
+    flex-basis: 75% !important;
+  }
+
+  .u-4-of-4-bp2 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-5-bp2 {
+    flex-basis: 20% !important;
+  }
+
+  .u-2-of-5-bp2 {
+    flex-basis: 40% !important;
+  }
+
+  .u-3-of-5-bp2 {
+    flex-basis: 60% !important;
+  }
+
+  .u-4-of-5-bp2 {
+    flex-basis: 80% !important;
+  }
+
+  .u-5-of-5-bp2 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-6-bp2 {
+    flex-basis: 16.6666666667% !important;
+  }
+
+  .u-2-of-6-bp2 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-3-of-6-bp2 {
+    flex-basis: 50% !important;
+  }
+
+  .u-4-of-6-bp2 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-5-of-6-bp2 {
+    flex-basis: 83.3333333333% !important;
+  }
+
+  .u-6-of-6-bp2 {
+    flex-basis: 100% !important;
+  }
+}
+
+@media (min-width: 62.0625em) {
+  .u-1-of-2-bp3 {
+    flex-basis: 50% !important;
+  }
+
+  .u-2-of-2-bp3 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-3-bp3 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-2-of-3-bp3 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-3-of-3-bp3 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-4-bp3 {
+    flex-basis: 25% !important;
+  }
+
+  .u-2-of-4-bp3 {
+    flex-basis: 50% !important;
+  }
+
+  .u-3-of-4-bp3 {
+    flex-basis: 75% !important;
+  }
+
+  .u-4-of-4-bp3 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-5-bp3 {
+    flex-basis: 20% !important;
+  }
+
+  .u-2-of-5-bp3 {
+    flex-basis: 40% !important;
+  }
+
+  .u-3-of-5-bp3 {
+    flex-basis: 60% !important;
+  }
+
+  .u-4-of-5-bp3 {
+    flex-basis: 80% !important;
+  }
+
+  .u-5-of-5-bp3 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-6-bp3 {
+    flex-basis: 16.6666666667% !important;
+  }
+
+  .u-2-of-6-bp3 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-3-of-6-bp3 {
+    flex-basis: 50% !important;
+  }
+
+  .u-4-of-6-bp3 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-5-of-6-bp3 {
+    flex-basis: 83.3333333333% !important;
+  }
+
+  .u-6-of-6-bp3 {
+    flex-basis: 100% !important;
+  }
+}
+
+@media (min-width: 75.0625em) {
+  .u-1-of-2-bp4 {
+    flex-basis: 50% !important;
+  }
+
+  .u-2-of-2-bp4 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-3-bp4 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-2-of-3-bp4 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-3-of-3-bp4 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-4-bp4 {
+    flex-basis: 25% !important;
+  }
+
+  .u-2-of-4-bp4 {
+    flex-basis: 50% !important;
+  }
+
+  .u-3-of-4-bp4 {
+    flex-basis: 75% !important;
+  }
+
+  .u-4-of-4-bp4 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-5-bp4 {
+    flex-basis: 20% !important;
+  }
+
+  .u-2-of-5-bp4 {
+    flex-basis: 40% !important;
+  }
+
+  .u-3-of-5-bp4 {
+    flex-basis: 60% !important;
+  }
+
+  .u-4-of-5-bp4 {
+    flex-basis: 80% !important;
+  }
+
+  .u-5-of-5-bp4 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-6-bp4 {
+    flex-basis: 16.6666666667% !important;
+  }
+
+  .u-2-of-6-bp4 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-3-of-6-bp4 {
+    flex-basis: 50% !important;
+  }
+
+  .u-4-of-6-bp4 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-5-of-6-bp4 {
+    flex-basis: 83.3333333333% !important;
+  }
+
+  .u-6-of-6-bp4 {
+    flex-basis: 100% !important;
+  }
+}
+
+@media (min-width: 87.5625em) {
+  .u-1-of-2-bp5 {
+    flex-basis: 50% !important;
+  }
+
+  .u-2-of-2-bp5 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-3-bp5 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-2-of-3-bp5 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-3-of-3-bp5 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-4-bp5 {
+    flex-basis: 25% !important;
+  }
+
+  .u-2-of-4-bp5 {
+    flex-basis: 50% !important;
+  }
+
+  .u-3-of-4-bp5 {
+    flex-basis: 75% !important;
+  }
+
+  .u-4-of-4-bp5 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-5-bp5 {
+    flex-basis: 20% !important;
+  }
+
+  .u-2-of-5-bp5 {
+    flex-basis: 40% !important;
+  }
+
+  .u-3-of-5-bp5 {
+    flex-basis: 60% !important;
+  }
+
+  .u-4-of-5-bp5 {
+    flex-basis: 80% !important;
+  }
+
+  .u-5-of-5-bp5 {
+    flex-basis: 100% !important;
+  }
+
+  .u-1-of-6-bp5 {
+    flex-basis: 16.6666666667% !important;
+  }
+
+  .u-2-of-6-bp5 {
+    flex-basis: 33.3333333333% !important;
+  }
+
+  .u-3-of-6-bp5 {
+    flex-basis: 50% !important;
+  }
+
+  .u-4-of-6-bp5 {
+    flex-basis: 66.6666666667% !important;
+  }
+
+  .u-5-of-6-bp5 {
+    flex-basis: 83.3333333333% !important;
+  }
+
+  .u-6-of-6-bp5 {
+    flex-basis: 100% !important;
+  }
+}
